@@ -1,18 +1,46 @@
 import numpy as np
+import cube_side_select
+import enum
 
-# name = input('Please Enter Your Name \n')
-# print('Hi', name)
+# class sides(enum.Enum):
+#    up = 0
+#    down = 1
+#    back = 2
+#    front = 3
+#    left = 4
+#    right = 5
+# # print(sides.up.value)
 
-cube = np.empty(54, dtype=str).reshape(6,3,3)
-side_notation = ['L', 'F', 'R', 'B', 'U', 'D']
+cube = np.empty(54, dtype=int).reshape(6,3,3)
+
+# side_notation = ['W', 'Y', 'B', 'G', 'O', 'R']
+side_notation = [0, 1, 2, 3, 4, 5]
 
 # The color of a face is indexed like cube[SIDE][ROW][COL]
 for side in range(len(cube)):
     for row in range(len(cube[side])):
         for column in range(len(cube[side][row])):
-            cube[side][column][row] = side_notation[side]
+            cube[side][row][column] = side_notation[side]
 
-print(cube)
+def make_rotation():
 
-# print("Make A Change")
-# print(np.rot90(arr1, k=2, axes=(0,1)))
+    side = str(input("What Side to Rotate?\n "))
+    rotation = str(input("Which Direction?\n "))
+
+    side_co = cube_side_select.side_select(side)
+
+    current_cube_side = np.empty(25, dtype=int).reshape(5,5)
+
+    for row in range(len(current_cube_side)):
+        for column in range(len(current_cube_side[row])):
+            if len(side_co[row][column]) != 0:
+                current_cube_side[row][column] = eval("cube"+side_co[row][column])
+            else:
+                current_cube_side[row][column] = 7
+
+    if rotation == "clockwise":
+        return np.rot90(current_cube_side, k=3)
+    if rotation == "anti-clockwise":
+        return np.rot90(current_cube_side, k=1)
+
+    
