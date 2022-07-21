@@ -36,6 +36,43 @@ right_face = [["","[0][2][2]","[0][1][2]","[0][0][2]",""],
             ["[3][2][2]","[5][2][0]","[5][2][1]","[5][2][2]","[2][2][0]"],
             ["","[1][0][2]","[1][1][2]","[1][2][2]",""]]
 
-def side_select(side):
-    side = side.lower()
-    return (eval(side+"_face"))
+
+def create_cube():
+
+    cube = np.empty(54, dtype=int).reshape(6,3,3)
+
+    # side_notation = ['W', 'Y', 'B', 'G', 'O', 'R']
+    side_notation = [0, 1, 2, 3, 4, 5]
+
+    for side in range(len(cube)):
+        for row in range(len(cube[side])):
+            for column in range(len(cube[side][row])):
+                cube[side][row][column] = side_notation[side]
+    return cube
+
+
+def rotate_side(cube, side, rotation):
+
+    side_co = eval(side+"_face")
+
+    current_cube_side = np.empty(25, dtype=int).reshape(5,5)
+
+    for row in range(len(current_cube_side)):
+        for column in range(len(current_cube_side[row])):
+            if len(side_co[row][column]) != 0:
+                current_cube_side[row][column] = eval("cube"+side_co[row][column])
+            else:
+                current_cube_side[row][column] = 7
+
+    if rotation.startswith('c'):
+        current_cube_side = np.rot90(current_cube_side, k=3)
+    else:
+        current_cube_side = np.rot90(current_cube_side, k=1)
+
+    for row in range(len(current_cube_side)):
+        for column in range(len(current_cube_side[row])):
+            if len(side_co[row][column]) != 0:
+                exec("cube"+side_co[row][column] + "=" + str(current_cube_side[row][column]))
+            else:
+                continue
+    return cube
