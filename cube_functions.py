@@ -1,3 +1,8 @@
+# -----------------------------------------------------------
+# Functions & Classes that create, rotate and generate an
+# exploded view for a magic-Cube.
+# -----------------------------------------------------------
+
 import numpy as np
 import enum
 
@@ -62,9 +67,11 @@ class Colour(bytes, enum.Enum):
 
 
 def create_cube():
-    '''
-    side_notation = [0, 1, 2, 3, 4, 5]
-    '''
+    """Create The Magic Cube.
+
+    The cube is initially an empty numpy array before being replaced by the
+    values for each side of the cube.
+    """
     cube = np.empty((6, 3, 3), dtype=object)
     side_notation = ['White', 'Yellow', 'Blue', 'Green', 'Orange', 'Red']
     for side in range(len(cube)):
@@ -75,9 +82,10 @@ def create_cube():
 
 
 def rotate_side(cube, side, rotation):
-    '''
-    Side(side).face[siderow][sidecolumn]
-    '''
+    """Rotate the selected side given a selected rotation.
+
+    Using the Side Class and numpy rot90 we can rotate a side of the cube.
+    """
     rotating_side = np.empty((5, 5), dtype=object)
     for row in range(len(rotating_side)):
         for column in range(len(rotating_side[row])):
@@ -103,8 +111,10 @@ def rotate_side(cube, side, rotation):
 
 
 def exploded_view(cube):
-    '''
-    '''
+    """Create an exploded view of the Magic Cube.
+
+    Create a string with ANSI background colour using our Colour Class.
+    """
     cube_explode = ''
     for row in range(len(cube[0])):
         cube_explode = cube_explode + '\033[49m      '

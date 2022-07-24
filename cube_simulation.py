@@ -1,7 +1,10 @@
+# -----------------------------------------------------------
+# Script to simulate creating and rotating a cube using the cube_functions.py module.
+# -----------------------------------------------------------
+
 import cube_functions
 
 print('Simulating A Magic Cube')
-
 begin = input('Do you want to Simulate the Cube? Yes/No \n').lower()
 if begin.startswith('y'):
     new_cube = cube_functions.create_cube()
@@ -11,7 +14,6 @@ else:
 print('Cube Created\nTime to Rotate')
 
 rotate = 'y'
-
 while rotate.startswith('y'):
     print('What side would you like to rotate?' +
           '\n1) Up\n2) Down\n3) Back\n4) Front\n5) Left\n6) Right')
@@ -41,6 +43,5 @@ while rotate.startswith('y'):
     new_cube = cube_functions.rotate_side(new_cube, r_side, r_dir)
 
     rotate = input('Do you want to make another rotation? Yes/No \n').lower()
-
 
 print(cube_functions.exploded_view(new_cube))
