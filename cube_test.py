@@ -5,6 +5,7 @@
 
 import cube_functions
 import numpy as np
+import os, sys
 
 solved_cube = cube_functions.create_cube()
 test_cube = cube_functions.create_cube()
@@ -14,7 +15,7 @@ for idx in range(len(rotations)):
         test_cube, rotations[idx][0], rotations[idx][1])
 
 rotated_cube = cube_functions.exploded_view(test_cube)
-expected_cube = open('magic-cube/expected_cube.txt', 'r')
+expected_cube = open(os.path.join(sys.path[0], "expected_cube.txt"), 'r')
 
 if expected_cube.read() != rotated_cube:
     raise Exception("Rotation operation flawed.")

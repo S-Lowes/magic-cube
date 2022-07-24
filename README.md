@@ -52,5 +52,6 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ## Building & Running
 - This project was written and run in VSCode. using a [VirtualEnvironment](https://www.geeksforgeeks.org/python-virtual-environment/) to avoid installing requirements into a global Python environment.
-- If running from a Terminal rather than an editor make sure you are in the project's parent directory otherwise cube_test.py will not be able to find the file.
-- If running from the terminal you will not see the colour representation.
+- Clone Repository
+- Install requirements with `pip3 install -r requirements.txt`
+- Run Scripts (cube_simulations.py OR cube_test.py)
