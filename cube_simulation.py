@@ -1,5 +1,6 @@
 # -----------------------------------------------------------
-# Script to simulate creating and rotating a cube using the cube_functions.py module.
+# Script to simulate creating and rotating a
+# cube using the cube_functions.py module.
 # -----------------------------------------------------------
 
 import cube_functions

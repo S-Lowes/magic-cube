@@ -8,12 +8,14 @@ This repository will simulate a Rubik's Cube (Magic Cube).
 
 ## Taking The Project Further (Additional Features)
 
-- Represent Cube Differently than a 6x3x3 Matrix. (Composite Representation - 5x12)
+- Represent Cube Differently to a 6x3x3 Matrix. (eg. Composite Representation 5x12)
 - Create a different rotation method due to different cube representation.
+- Add functionality for different cube size & shapes.
 
-## Frameworks, Libraries & Programs Used
+## Frameworks, Libraries, Programs & Technologies Used
 
 - [Numpy](https://numpy.org/doc/stable/index.html)
+- [ANSI](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
 ## Testing
 
@@ -22,7 +24,7 @@ All Python code was written to be PEP8 compliant with the final code being teste
 Aside from manually checking my code I created a small cube_test.py file.
 
 - After making a series of delibrate rotations on a Cube it compares that with an expected result.
-- We then make the reverse rotations and check that the final cube is the same as a untouched cube.
+- The reverse rotations are made and checked against an untouched cube.
 
 ## Forking, Cloning
 

@@ -4,6 +4,7 @@
 # -----------------------------------------------------------
 
 import cube_functions
+import numpy as np
 
 solved_cube = cube_functions.create_cube()
 test_cube = cube_functions.create_cube()
@@ -26,7 +27,7 @@ for idx in range(len(opposite_rotations)):
 
 test_condition = True
 while test_condition:
-    if len(solved_cube) == len(test_cube):
+    if np.shape(solved_cube) == np.shape(solved_cube):
         for side in range(len(test_cube)):
             for row in range(len(test_cube[side])):
                 for column in range(len(test_cube[side][row])):

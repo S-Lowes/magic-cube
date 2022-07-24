@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
 # Functions & Classes that create, rotate and generate an
-# exploded view for a magic-Cube.
+# exploded view for a Magic Cube.
 # -----------------------------------------------------------
 
 import numpy as np
@@ -8,6 +8,11 @@ import enum
 
 
 class Side(bytes, enum.Enum):
+    """Create Side Class.
+
+    Cube mapped as 6x3x3 Array. Enumerate the values
+    affected by a rotation of a specific side.
+    """
     def __new__(cls, value, face):
         obj = bytes.__new__(cls, [value])
         obj._value_ = value
@@ -52,6 +57,10 @@ class Side(bytes, enum.Enum):
 
 
 class Colour(bytes, enum.Enum):
+    """Create Colour Class.
+
+    Enumerate ANSI background colour for each side.
+    """
     def __new__(cls, value, col_hex):
         obj = bytes.__new__(cls, [value])
         obj._value_ = value
@@ -69,8 +78,8 @@ class Colour(bytes, enum.Enum):
 def create_cube():
     """Create The Magic Cube.
 
-    The cube is initially an empty numpy array before being replaced by the
-    values for each side of the cube.
+    The Cube is initially an empty 6x3x3 numpy array before being replaced
+    by the initial values for each side of a solved cube.
     """
     cube = np.empty((6, 3, 3), dtype=object)
     side_notation = ['White', 'Yellow', 'Blue', 'Green', 'Orange', 'Red']
