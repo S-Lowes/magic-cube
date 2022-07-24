@@ -44,6 +44,19 @@ class Side(bytes, enum.Enum):
             [[3,2,2],[5,2,0],[5,2,1],[5,2,2],[2,2,0]],
             [[],[1,0,2],[1,1,2],[1,2,2],[]]])
 
+class Colour(bytes, enum.Enum):
+    def __new__(cls, value, col_hex):
+        obj = bytes.__new__(cls, [value])
+        obj._value_ = value
+        obj.col_hex = col_hex
+        return obj
+        
+    W = (0, '\033[48;2;240;240;255mW ')
+    Y = (1, '\033[48;2;250;250;50mY ')
+    B = (2, '\033[48;2;55;130;230mB ')
+    G = (3, '\033[48;2;130;220;0mG ')
+    O = (4, '\033[48;2;255;165;0mO ')
+    R = (5, '\033[48;2;220;60;50mR ')
 
 def create_cube():
     '''
@@ -86,6 +99,29 @@ def rotate_side(cube, side, rotation):
     return cube
 
 
-    def exploded_view(cube):
+def exploded_view(cube):
+    '''
+    '''
+    cube_explode = ''
+    for row in range(len(cube[0])):
+        cube_explode = cube_explode + '\033[49m      '
+        for column in range(len(cube[0][row])):
+            cube_explode += Colour[cube[0][row][column]].col_hex
+        cube_explode = cube_explode + '\033[49m            \n'
 
-        return
+    middle = [4,3,5,2]
+
+    for row in range(len(cube[0])):
+        for i in range(len(middle)):
+            for column in range(len(cube[middle[i]][row])):
+                cube_explode += Colour[cube[middle[i]][row][column]].col_hex
+
+        cube_explode += '\033[49m\n'
+
+    for row in range(len(cube[1])):
+        cube_explode = cube_explode + '\033[49m      '
+        for column in range(len(cube[1][row])):
+            cube_explode += Colour[cube[1][row][column]].col_hex
+        cube_explode = cube_explode + '\033[49m            \n'
+
+    return (cube_explode)

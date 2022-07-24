@@ -42,4 +42,4 @@ while rotate.startswith('y'):
     rotate = input('Do you want to make another rotation? Yes/No \n').lower()
 
 
-print(new_cube)
+print(cube_functions.exploded_view(new_cube))
