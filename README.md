@@ -12,8 +12,9 @@ This repository will simulate a Rubik's Cube (Magic Cube).
 - Create a different rotation method due to different cube representation.
 - Add functionality for different cube size & shapes.
 
-## Frameworks, Libraries, Programs & Technologies Used
+## Technologies Used
 
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [Numpy](https://numpy.org/doc/stable/index.html)
 - [ANSI](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
@@ -25,6 +26,8 @@ Aside from manually checking my code I created a small cube_test.py file.
 
 - After making a series of delibrate rotations on a Cube it compares that with an expected result.
 - The reverse rotations are made and checked against an untouched cube.
+
+![cube_test.py Output](documentation/cube_test.png)
 
 ## Forking, Cloning
 
@@ -46,3 +49,8 @@ By forking the GitHub Repository we are making a copy of the original repository
 - Type `git clone`, and then paste the URL you copied earlier.
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for a more detailed explanation of the cloning process.
+
+## Building & Running
+- This project was written and run in VSCode. using a [VirtualEnvironment](https://www.geeksforgeeks.org/python-virtual-environment/) to avoid installing requirements into a global Python environment.
+- If running from a Terminal rather than an editor make sure you are in the project's parent directory otherwise cube_test.py will not be able to find the file.
+- If running from the terminal you will not see the colour representation.
