@@ -51,7 +51,7 @@ By forking the GitHub Repository we are making a copy of the original repository
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for a more detailed explanation of the cloning process.
 
 ## Building & Running
-- This project was written and run in VSCode. using a [VirtualEnvironment](https://www.geeksforgeeks.org/python-virtual-environment/) to avoid installing requirements into a global Python environment.
+- This project was written and run in VSCode using a [VirtualEnvironment](https://www.geeksforgeeks.org/python-virtual-environment/) to avoid installing requirements into a global Python environment.
 - Clone Repository
 - Install requirements with `pip3 install -r requirements.txt`
 - Run Scripts (cube_simulations.py OR cube_test.py)
